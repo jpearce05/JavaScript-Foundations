@@ -90,7 +90,7 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 // console.log(`${name}, your monthly rate is $` ${ monthlyRate });
 
 
-function mortgageCalculator(name, principal, rate, year) {
+function mortgageCalculator(name, principal, rate, year, creditScore) {
 
   monthlyInterestRate = rate / 12;
   periods = year * 12;
@@ -100,18 +100,19 @@ function mortgageCalculator(name, principal, rate, year) {
 
   let monthlyRate = principal * (numerator / denominator);
 
-    return (`${name}, your monthly rate is $ ${ Math.round(monthlyRate) }`);
-   
-   
-    
+  if (creditScore > 740) {
+    monthlyInterestRate =  monthlyInterestRate - .005;
+  } else if (creditScore < 660) {
+    monthlyInterestRate =  monthlyInterestRate + .005;
+  } else 
 
+  return (`${name}, your monthly rate is $ ${ Math.round(monthlyRate) }`);
+    
   }
 
+
 // let monthlyPayment = mortgageCalculator(200000, 0.05, 30);
-console.log(mortgageCalculator("oscar", 200000, 0.05, 30));
-
-
-
+console.log(mortgageCalculator("oscar", 200000, 0.05, 30, 750));
 
 
 
@@ -120,6 +121,8 @@ console.log(mortgageCalculator("oscar", 200000, 0.05, 30));
 
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
+
+
 
 
 
