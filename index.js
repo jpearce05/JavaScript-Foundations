@@ -7,7 +7,6 @@
 
 
 
-
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
 
@@ -39,6 +38,25 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 
+let name = "Oscar";
+let principal = 200000;
+let rate = 0.05;
+let years = 30;
+let monthlyInterestRate = rate / 12;
+let periods = years * 12;
+
+let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+let monthlyRate = principal * (numerator/denominator);
+
+
+function mortgageCalculator(principal, rate, periods) {
+  return Math.round((monthlyRate));
+
+}
+
+console.log(`${name}, your monthly rate is $` ${monthlyRate});
+console.log(mortgageCalculator());
 
 
 
