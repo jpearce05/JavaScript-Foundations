@@ -37,27 +37,28 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+// let name = "Oscar";
+// let principal = 200000;
+// let rate = 0.05;
+// let years = 30;
+// let monthlyInterestRate = rate / 12;
+// let periods = years * 12;
 
-let name = "Oscar";
-let principal = 200000;
-let rate = 0.05;
-let years = 30;
-let monthlyInterestRate = rate / 12;
-let periods = years * 12;
-
-let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
-let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
-let monthlyRate = principal * (numerator/denominator);
+// let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+// let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+// let monthlyRate = principal * (numerator / denominator);
 
 
-function mortgageCalculator(principal, rate, periods) {
-  return Math.round((monthlyRate));
+// function mortgageCalculator(principal, rate, periods) {
+//   return Math.round((monthlyRate));
 
-}
+// }
 
-console.log(`${name}, your monthly rate is $` ${monthlyRate});
-console.log(mortgageCalculator());
+// console.log(mortgageCalculator());
+// console.log(`${name}, your monthly rate is $` ${ monthlyRate });
 
+
+// console.log({ mortgageCalculator });
 
 
 // 🏡 Task 4: Arguments and Parameters
@@ -66,6 +67,49 @@ console.log(mortgageCalculator());
 For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
+
+
+// function mortgageCalculator(p, r, y) {
+//     // let name = n;
+//     let principal = p;
+//     let rate = r;
+//     let years = y;
+//     let monthlyInterestRate = r / 12;
+//     let periods = y * 12;
+
+//     let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+//     let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+
+//     let monthlyRate = principal * (numerator / denominator);
+
+//       return Math.round((monthlyRate));
+
+//     }
+
+// console.log(mortgageCalculator(200000, 0.05, 30));
+// console.log(`${name}, your monthly rate is $` ${ monthlyRate });
+
+
+function mortgageCalculator(name, principal, rate, year) {
+
+  monthlyInterestRate = rate / 12;
+  periods = year * 12;
+
+  let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+  let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+
+  let monthlyRate = principal * (numerator / denominator);
+
+    return (`${name}, your monthly rate is $ ${ Math.round(monthlyRate) }`);
+   
+   
+    
+
+  }
+
+// let monthlyPayment = mortgageCalculator(200000, 0.05, 30);
+console.log(mortgageCalculator("oscar", 200000, 0.05, 30));
+
 
 
 
