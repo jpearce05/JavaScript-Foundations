@@ -98,12 +98,23 @@ function mortgageCalculator(name, principal, rate, year, creditScore) {
   let numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
   let denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
 
+  let numeratorLower = (monthlyInterestRate - .005) * Math.pow((1 + monthlyInterestRate - .005), periods)
+  let denominatorLower = Math.pow((1 + monthlyInterestRate - .005), periods) - 1
+
+  let numeratorHigher = (monthlyInterestRate + .005) * Math.pow((1 + monthlyInterestRate + .005), periods)
+  let denominatorHigher = Math.pow((1 + monthlyInterestRate + .005), periods) - 1
+
   let monthlyRate = principal * (numerator / denominator);
+  let monthlyLower = principal * (numeratorLower / denominatorLower);
+  let monthlyHigher = principal * (numeratorHigher / denominatorHigher);
+  
 
   if (creditScore > 740) {
-    monthlyInterestRate =  monthlyInterestRate - .005;
+    monthlyInterestRate =  (monthlyInterestRate - .005);
+    return (`${name}, your monthly rate is $ ${ Math.round(monthlyLower) }`);
   } else if (creditScore < 660) {
-    monthlyInterestRate =  monthlyInterestRate + .005;
+    monthlyInterestRate =  (monthlyInterestRate + .005);
+    return (`${name}, your monthly rate is $ ${ Math.round(monthlyHigher) }`);
   } else 
 
   return (`${name}, your monthly rate is $ ${ Math.round(monthlyRate) }`);
@@ -112,7 +123,7 @@ function mortgageCalculator(name, principal, rate, year, creditScore) {
 
 
 // let monthlyPayment = mortgageCalculator(200000, 0.05, 30);
-console.log(mortgageCalculator("oscar", 200000, 0.05, 30, 750));
+console.log(mortgageCalculator("oscar", 200000, 0.05, 30, 600));
 
 
 
